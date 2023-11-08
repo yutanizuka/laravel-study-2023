@@ -48,3 +48,4 @@ Route::get('/monty-hall',[App\Http\Controllers\GameController::class,'montyHall'
 // リクエスト
 Route::get('/form', [App\Http\Controllers\RequestSampleController::class,'form']);
 Route::get('/query-strings', [App\Http\Controllers\RequestSampleController::class,'queryStrings']);
+Route::get('/users/{id}',[App\Http\Controllers\RequestSampleController::class, 'profile']);

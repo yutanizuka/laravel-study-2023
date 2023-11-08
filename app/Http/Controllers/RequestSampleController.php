@@ -35,6 +35,11 @@ class RequestSampleController extends Controller
         $keyword = $request -> get(key: filled('keyword'), default:'未設定');
         return 'キーワードは「' . $keyword . '」です';
     }
+
+    public function profile($id)
+    {
+        return 'ID:' . $id;
+    }
     }
 
 
