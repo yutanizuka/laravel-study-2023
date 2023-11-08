@@ -40,6 +40,11 @@ class RequestSampleController extends Controller
     {
         return 'ID:' . $id;
     }
+
+    public function productsArchive(Request $request, $category, $year)
+    {
+        return 'category:' . $category . '<br>year:' . $year . '<br> page:' . $request->get(key: 'page', default: 1);
+    }
     }
 
 
