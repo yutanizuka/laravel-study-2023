@@ -1,7 +1,10 @@
 <?php
 
 use App\Http\Controllers\UtilityController;
+// use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+
+use App\Http\Controllers\RequestSampleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -46,7 +49,16 @@ Route::get('/omikuji', [App\Http\Controllers\GameController::class,'omikuji']);
 Route::get('/monty-hall',[App\Http\Controllers\GameController::class,'montyHall']);
 
 // リクエスト
-Route::get('/form', [App\Http\Controllers\RequestSampleController::class,'form']);
 Route::get('/query-strings', [App\Http\Controllers\RequestSampleController::class,'queryStrings']);
-Route::get('/users/{id}',[App\Http\Controllers\RequestSampleController::class, 'profile']);
+Route::get('/users/{id}',[App\Http\Controllers\RequestSampleController::class, 'profile'])->name(name: 'profile');
 Route::get('/products/{category}/{year}',[App\Http\Controllers\RequestSampleController::class,'productsArchive']);
+Route::get('/route-link', [App\Http\Controllers\RequestSampleController::class, 'routeLink']);
+Route::get('/form', [App\Http\Controllers\RequestSampleController::class,'form']);
+
+// //ログイン
+// Route::get('/login', 'App\Http\Controllers\RequestSampleController@loginForm');
+Route::get('/login', [App\Http\Controllers\RequestSampleController::class, 'loginForm']);
+Route::post('/login', [App\Http\Controllers\RequestSampleController::class, 'login'])->name('login');
+
+Route::resource('/events',App\Http\Controllers\EventController::class)->only(['index','create','store']);
+
