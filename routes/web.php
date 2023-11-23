@@ -4,6 +4,7 @@ use App\Http\Controllers\UtilityController;
 // use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HilowController;
+use App\Http\Controllers\PhotoController;
 
 use App\Http\Controllers\RequestSampleController;
 
@@ -69,3 +70,4 @@ Route::get('/hi-low', [HilowController::class, 'index'])->name('hi-low');
 Route::post('/hi-low', [HilowController::class, 'result']);
 
 Route::resource('/photos',App\Http\Controllers\PhotoController::class)->only(['create','store','show','destroy']);
+Route::get('/photos/{photo}/download',[App\Http\Controllers\PhotoController::class, 'download'])->name('photos.download');

@@ -11,4 +11,5 @@
         @method('DELETE')
         <button type="submit">削除</button>
     </form>
+    <a href="{{ route('photos.download', ['photo' => $fileName]) }}">ダウンロード</a>
 @endsection
